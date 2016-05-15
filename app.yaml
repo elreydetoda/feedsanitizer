@@ -1,5 +1,5 @@
 application: feedsanitizer
-version: 1
+version: 2
 runtime: python
 api_version: 1
 
@@ -20,7 +20,7 @@ handlers:
 - url: /media/admin
   static_dir: django/contrib/admin/media
   expiration: '0'
-  
+
 - url: /styles
   static_dir: static/styles
 
@@ -31,8 +31,16 @@ handlers:
   static_dir: static/images
 
 - url: /favicon.ico
-  static_files: static/images/favicon.ico  
+  static_files: static/images/favicon.ico
   upload: static/images/favicon.ico
+
+- url: /robots.txt
+  static_files: static/robots.txt
+  upload: static/robots.txt
+
+- url: /googled5216d7987aee3d4.html
+  static_files: static/googled5216d7987aee3d4.html
+  upload: static/googled5216d7987aee3d4.html
 
 - url: /.*
   script: djangoappengine/main/main.py
