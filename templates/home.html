@@ -13,24 +13,24 @@
 		$('#form').submit(function(){
 			$('#urlsubmit').attr('disabled', 'disabled');
 			$('#progressindicator').show();
-			
+
 		});
 		var validate = function() {
 			var valid = $('#form input.url').val().match(/^https?:\/\//);
 			if(valid)$('#urlsubmit').removeAttr('disabled');
 			else $('#urlsubmit').attr('disabled', 'disabled');
 		};
-		
+
 		// disable submit button for obviously wrong urls
 		$('#form input.url').change(validate).keyup(validate).focus();
 		// if result is available, focus that
 		$('div#result input.url').focus();
-		
+
 		// flash result
 		$('div#result').effect('highlight', {color:'#689dde'}, 2000);
 		// flash error
 		$('div#error').effect('highlight', {color:'#ff0000'}, 2000);
-		
+
 		// show xml code
 		$('a.togglecode').click(function(ev){
 			$('div.code').slideToggle();
@@ -69,7 +69,7 @@ The Feed Sanitizer scrubs off the dirt and returns germ-free feeds.
 </p>
 <form id="form" name="form" method="get" action="/">
 	What's the URL of the feed you are struggling with?
-	<input type="text" name="url" class="url" value="{{first_url|default_if_none:"http://www.heikobehrens.net/feed/"}}" />
+	<input type="text" name="url" class="url" value="{{first_url|default_if_none:"https://www.nick.pro/feed/"}}" />
 	<div id="formats">
 		<p>
 		Please choose the output format of the sanitized feed.
@@ -89,7 +89,7 @@ The Feed Sanitizer scrubs off the dirt and returns germ-free feeds.
 {% if error %}
 <div id="error">
 	<h1>Oops! An error occured...</h1>
-	<p>Please <a href="https://github.com/hbehrens/feedsanitizer/issues" target="_blank">create a new issue for The Feed Sanitizer at GitHub</a> and provide the following text. This will help me to solve this error. 
+	<p>Please <a href="https://github.com/nickmoline/feedsanitizer/issues" target="_blank">create a new issue for The Feed Sanitizer at GitHub</a> and provide the following text. This will help me to solve this error.
 	</p>
 	<pre>
 url: {{first_url}}
@@ -109,8 +109,8 @@ format: {{feed_format}}
 You can also follow the <a id="feedlink" class="feedformat_{{feed_format}}" href="{{feed_link}}">link to the sanitized feed</a> to fire up your feed aggregator.
 </p>
 <p id="validator">
-<img src="/images/valid-{{feed_format}}.png">	
-Sanitized means, <a href="http://validator.w3.org/feed/check.cgi?url={{feed_link|urlencode}}" target="_blank">you got a valid {{feed_format|upper}} feed</a> according to the W3C. Feel free to 
+<img src="/images/valid-{{feed_format}}.png">
+Sanitized means, <a href="http://validator.w3.org/feed/check.cgi?url={{feed_link|urlencode}}" target="_blank">you got a valid {{feed_format|upper}} feed</a> according to the W3C. Feel free to
 <a href="http://validator.w3.org/feed/check.cgi?url={{first_url|urlencode}}" target="_blank">check if your original passes the test</a>, too.
 </p>
 <p class="togglecode">Also, <a class="togglecode" href="#">have a look at the resulting XML</a> (at least if you are keen on embedded XML).</p>
@@ -121,13 +121,13 @@ Sanitized means, <a href="http://validator.w3.org/feed/check.cgi?url={{feed_link
 </div>
 {% endif %}
 <div id="references">
-	<p><a href="http://HeikoBehrens.net">Heiko Behrens</a> built <span class="name">The Feed Sanitizer</span> with 
-		<a href="http://www.python.org/">Python</a> and 
-		<a href="http://www.allbuttonspressed.com/projects/djangoappengine">djangoappengine</a> 
+	<p><a href="http://HeikoBehrens.net">Heiko Behrens</a> built <span class="name">The Feed Sanitizer</span> with
+		<a href="http://www.python.org/">Python</a> and
+		<a href="http://www.allbuttonspressed.com/projects/djangoappengine">djangoappengine</a>
 		using several open-source libraries such as
-		<a href="http://www.feedparser.org">feedparser</a> by <span class="name">Mark Pilgrim</span> and 
+		<a href="http://www.feedparser.org">feedparser</a> by <span class="name">Mark Pilgrim</span> and
 		<a href="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</a> by <span class="name">Alex Gorbatchev</span>.
-		RSS and ATOM icons were provided by courtesy of 
+		RSS and ATOM icons were provided by courtesy of
 		<a href="http://www.feedicons.com">feedicons.com</a> and
 		<a href="http://sniker.blogage.de/entries/2008/2/24/2-Vorschlaege-fuer-ein-offizielles-Atom-Feed-Icon">blogage.de</a>.
 		<span class="name">The Feed Sanitizer</span> is open source, feel free to
