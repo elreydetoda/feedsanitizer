@@ -1,3 +1,8 @@
+# MOVED
+
+https://gitlab.com/elreydetoda/feedsanitizer
+
+
 The Feed Sanitizer is a web app to normalize RSS/ATOM feeds.
 It's open source and published under the MIT License.
 
