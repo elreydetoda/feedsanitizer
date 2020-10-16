@@ -19,3 +19,25 @@ using several open-source libraries such as
   SyntaxHighlighter by Alex Gorbatchev http://alexgorbatchev.com/SyntaxHighlighter
 
 The RSS and ATOM icons were provided by courtesy of feedicons.com and blogage.de.
+
+### Deployment
+
+Create app engine account [here](https://appengine.google.com/)
+
+
+```bash
+# download gcloud sdk
+sudo snap install google-cloud-sdk --classic
+
+# authenticate
+gcloud auth login
+
+# list your newly created projects
+gcloud projects list
+
+# configure your project id
+gcloud config set project <project_id>
+
+# deploy
+gcloud app deploy
+```
